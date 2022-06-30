@@ -139,13 +139,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/fakeUser", async (req, res) => {
-  const user = new User({ email: "colttt@gmail.com", username: "colttt" });
-  // register is a conveinence option to register quickly, first user object(new instance of user), and a password
-  const newUser = await User.register(user, "chicken");
-  res.send(newUser);
-});
-
 app.use("/", userRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
